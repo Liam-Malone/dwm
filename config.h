@@ -13,16 +13,26 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#ffffff";
 static const char col_gray4[]       = "#ffffff";
 static const char col_cyan[]        = "#Ea0909";
+
+static const char col_charcoal[]    = "#28231D";
+static const char col_lpurple[]     = "#C3AAF5";
+static const char col_mintgreen[]   = "#8FC9A3";
+static const char col_butter[]      = "#f7df75";
+static const char col_dyellow[]     = "#8B8000";
+static const char col_gold[]        = "#FFD700";
+static const char col_goldyellow[]  = "#FFC000";
+static const char col_white[]       = "#ffffff";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { col_white , col_lpurple, col_lpurple },
+	[SchemeSel]  = { col_white , col_mintgreen,  col_mintgreen },
 };
 
 
 
 /* tagging */
-static const char *tags[] = { "", "", "", "4", "5", "6", "7", "8", "9"};
+static const char *tags[] = { "", "", "", "4", "5", "6", "7", "8", ""};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -60,8 +70,9 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_mintgreen, "-nf", col_white , "-sb", col_lpurple , "-sf", col_white , NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("flameshot gui") },
