@@ -6,7 +6,10 @@ static const unsigned int gappx     = 4;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10", "fontawesome:size=14" };
+static const char *fonts[]          = {
+       					"monospace:size=10",
+				       	"fontawesome:size=14" 
+				      };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#C31313";
 static const char col_gray2[]       = "#444444";
@@ -76,6 +79,7 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("flameshot gui") },
+	{ MODKEY|ShiftMask,              XK_b,      spawn,          SHCMD("firefox") },
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
