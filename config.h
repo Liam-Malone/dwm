@@ -7,8 +7,10 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = {
+					"ttf-joypixels:size=10",
        					"monospace:size=10",
-				       	"fontawesome:size=14" 
+					"noto-font-emoji:size=10",
+				       	"fontawesome:size=10"
 				      };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#C31313";
@@ -35,7 +37,7 @@ static const char *colors[][3]      = {
 
 
 /* tagging */
-static const char *tags[] = { "", "", "", "4", "5", "6", "7", "8", ""};
+static const char *tags[] = { "🏠", "", "", "4", "5", "6", "7", "8", "📂"};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -74,12 +76,13 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_mintgreen, "-nf", col_white , "-sb", col_lpurple , "-sf", col_white , NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("flameshot gui") },
-	{ MODKEY|ShiftMask,              XK_b,      spawn,          SHCMD("firefox") },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("tabbed -c surf -e") },
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox") },
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
