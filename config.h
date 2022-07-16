@@ -80,7 +80,7 @@ static const char *termcmd[]  = { "kitty", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("flameshot gui") },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("~/scripts/screenshot") },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("tabbed -c surf -e") },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox") },
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },
