@@ -37,7 +37,7 @@ static const char *colors[][3]      = {
 
 
 /* tagging */
-static const char *tags[] = { "🏠", "", "", "4", "5", "6", "7", "8", "📂"};
+static const char *tags[] = { "🏠", "", "", "", "", "", "", "", "📂"};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -81,7 +81,8 @@ static const char *termcmd[]  = { "kitty", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("~/scripts/screenshot") },
-	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("tabbed -c surf -e") },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("tabbed -c surf -e") },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("$HOME/brave-bin/pkg/brave-bin/usr/lib/brave-bin/brave-browser") },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox") },
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
