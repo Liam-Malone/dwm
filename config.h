@@ -45,7 +45,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       1 << 4,         1,           -1 },
+	{ "Gimp",     NULL,       NULL,       1 << 4,       1,           -1 },
 	{ "firefox",  NULL,       NULL,       1 << 2,       0,           -1 },
 	{ "obs",      NULL, 	  NULL,       1 << 7,       0,           -1 },
 	{ "Audacity", NULL,   	  NULL,       1 << 6,       0,           -1 },
@@ -95,7 +95,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox") },
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_s,      togglebar,      {0} },
+	{ MODKEY|ShiftMask,             XK_k,      spawn,          SHCMD("shutdown now") },
+	{ MODKEY|ShiftMask,             XK_h,      togglebar,      {0} },
+	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("flatpak run org.kde.kdenlive") },
+	{ MODKEY,			XK_o,      spawn,          SHCMD("flatpak run com.obsproject.Studio")},
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
