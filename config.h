@@ -52,7 +52,7 @@ static const Rule rules[] = {
 	{ "Pcmanfm",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "Signal",   NULL,       NULL,       1 << 5,       0,           -1 },
 	{ "discord",  NULL,       NULL,       1 << 5,       0,           -1 },
-	{ "Brave-browser", NULL,  NULL,       1 << 2,       0,           -1 },
+	{ "Brave",    NULL,       NULL,       1 << 2,       0,           -1 },
 	{ "surf",     NULL,       NULL,       1 << 2,       0,           -1 },
 	{ "code",     NULL,       NULL,       1 << 3,       0,           -1 },
 };
@@ -91,7 +91,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("~/scripts/screenshot") },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("tabbed -c surf -e") },
-	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("$HOME/brave-bin/pkg/brave-bin/usr/lib/brave-bin/brave-browser") },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("brave") },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox") },
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
@@ -122,8 +122,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
-	{ MODKEY,              		XK_n,      shiftview,      { .i = +1 } },
-	{ MODKEY,              		XK_b,      shiftview,      { .i = -1 } },
+	{ Mod1Mask,            		XK_Tab,    shiftview,      { .i = +1 } },
+	{ Mod1Mask|ShiftMask,   	XK_Tab,    shiftview,      { .i = -1 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
