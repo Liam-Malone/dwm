@@ -37,7 +37,7 @@ static const char *colors[][3]      = {
 
 
 /* tagging */
-static const char *tags[] = { "🏠", "", "", "", "", "", "", "", "📂"};
+static const char *tags[] = { "", "", "", "", "", "", "", "", ""};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -96,7 +96,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_k,      spawn,          SHCMD("shutdown now") },
-	{ MODKEY|ControlMask,        XK_h,      togglebar,      {0} },
+	{ MODKEY|ControlMask,           XK_h,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("flatpak run org.kde.kdenlive") },
 	{ MODKEY,			XK_o,      spawn,          SHCMD("flatpak run com.obsproject.Studio")},
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
