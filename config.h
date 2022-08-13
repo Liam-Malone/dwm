@@ -89,25 +89,25 @@ static const char *termcmd[]  = { "kitty", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("~/scripts/screenshot") },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("tabbed -c surf -e") },
-	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("brave") },
-	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox") },
-	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,             XK_k,      spawn,          SHCMD("shutdown now") },
-	{ MODKEY|ControlMask,           XK_h,      togglebar,      {0} },
-	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("flatpak run org.kde.kdenlive") },
-	{ MODKEY,			XK_o,      spawn,          SHCMD("flatpak run com.obsproject.Studio")},
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ Mod1Mask,			XK_F4,     killclient,     {0} },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("~/scripts/screenshot") },               //Screenshot keybind
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("tabbed -c surf -e") },                  //Surf browser keybind (requires surf)
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("brave") },                              //Brave browser keybind
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox") },                            //Firefox keybind
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },                            //Runlauncher (dmneu) keybind
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },                             //Terminal (kitty) keybind
+	{ MODKEY|ShiftMask,             XK_k,      spawn,          SHCMD("shutdown now") },                       //shutdown keybind
+	{ MODKEY|ControlMask,           XK_b,      togglebar,      {0} },                                         //Hide/Show status bar
+	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("flatpak run org.kde.kdenlive") },       //Launch Kdenlive
+	{ MODKEY,			XK_o,      spawn,          SHCMD("flatpak run com.obsproject.Studio")},   //Launch OBS
+	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },                                  //Switch Focused Window clockwise
+	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },                                  //Switch Focused Window counter-clockwise
+	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },                                  //change layout
+	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },                                  //change layout
+	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },                                //increase size of main window
+	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },                                //decrease size of main window
+	{ MODKEY,                       XK_Return, zoom,           {0} },                                         //move focused window to master position
+	{ MODKEY,                       XK_Tab,    view,           {0} },                                         
+	{ MODKEY|ShiftMask,		XK_c,      killclient,     {0} },					  //kills focused window                                            
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -115,15 +115,15 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },                                 //Switch Focused Monitor left
+	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },                                 //Switch Focused Monitor right
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
-	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
-	{ Mod1Mask,            		XK_Tab,    shiftview,      { .i = +1 } },
-	{ Mod1Mask|ShiftMask,   	XK_Tab,    shiftview,      { .i = -1 } },
+	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },                                 //Decrease gap size
+	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },                                 //Increase gap size
+	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },                                 //Set gap size to 0
+	{ Mod1Mask,            		XK_Tab,    shiftview,      { .i = +1 } },                                //Switch to next tag
+	{ Mod1Mask|ShiftMask,   	XK_Tab,    shiftview,      { .i = -1 } },                                //Switch to prev tag
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
