@@ -107,7 +107,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },                                //decrease size of main window
 	{ MODKEY,                       XK_Return, zoom,           {0} },                                         //move focused window to master position
 	{ MODKEY,                       XK_Tab,    view,           {0} },                                         
-	{ MODKEY|ShiftMask,		XK_c,      killclient,     {0} },					  //kills focused window                                            
+	{ MODKEY|ShiftMask,		XK_c,      killclient,     {0} },                                         //kills focused window                                            
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
