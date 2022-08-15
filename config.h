@@ -7,12 +7,12 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = {
-					"ttf-joypixels:size=10",
-       					"monospace:size=10",
-					"noto-font-emoji:size=10",
-				       	"fontawesome:size=10"
+       					"monospace:pixelsize=20",
+					"ttf-joypixels:pixelsize=18",
+					"noto-font-emoji:pixelsize=18",
+				       	"fontawesome:pixelsize=20"
 				      };
-static const char dmenufont[]       = "monospace:size=10";
+static const char dmenufont[]       = "monospace:pixelsize=20";
 static const char col_gray1[]       = "#C31313";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#ffffff";
