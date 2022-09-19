@@ -101,7 +101,7 @@ static Key keys[] = {
 	{ Mod1Mask|ShiftMask,           XK_Return, spawn,          {.v = termcmd } },                             //Launch Terminal (kitty)
 	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("flatpak run org.kde.kdenlive") },       //Launch Kdenlive
 	{ MODKEY,			XK_o,      spawn,          SHCMD("flatpak run com.obsproject.Studio")},   //Launch OBS
-	{ Mod1Mask|ShiftMask,		XK_s, 	   spawn, 	   SHCMD{"flatpak run com.valvesoftware.Steam"},  //Luanch Steam
+	{ Mod1Mask|ShiftMask,		XK_s, 	   spawn, 	   SHCMD("flatpak run com.valvesoftware.Steam")}, //Launch Steam
 
 	{ MODKEY|ControlMask,           XK_b,      togglebar,      {0} },                                         //Hide/Show status bar
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },                                  //Switch Focused Window clockwise
