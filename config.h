@@ -91,14 +91,19 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ 0,		                XK_Print,  spawn,          SHCMD("~/scripts/screenshot") },               //Screenshot keybind
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("systemctl suspend") },                  //put machine to sleep
-	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("brave") },                              //Brave browser keybind
-	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox") },                            //Firefox keybind
-	{ Mod1Mask|ShiftMask,	        XK_d,      spawn,          {.v = dmenucmd } },                            //Runlauncher (dmneu) keybind
-	{ Mod1Mask|ShiftMask,           XK_Return, spawn,          {.v = termcmd } },                             //Terminal (kitty) keybind
 	{ MODKEY|ShiftMask,             XK_k,      spawn,          SHCMD("shutdown now") },                       //shutdown keybind
-	{ MODKEY|ControlMask,           XK_b,      togglebar,      {0} },                                         //Hide/Show status bar
+	{ Mod1Mask|ShiftMask,	        XK_d,      spawn,          {.v = dmenucmd } },                            //Runlauncher (dmenu) keybind
+
+				    	//program launch keybinds
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("brave") },                              //Launch Brave
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox") },                            //Launch Firefox
+	{ MODKEY|ShiftMask, 		XK_d,	   spawn,	   SHCMD("discord")},				  //Launch Discord
+	{ Mod1Mask|ShiftMask,           XK_Return, spawn,          {.v = termcmd } },                             //Launch Terminal (kitty)
 	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("flatpak run org.kde.kdenlive") },       //Launch Kdenlive
 	{ MODKEY,			XK_o,      spawn,          SHCMD("flatpak run com.obsproject.Studio")},   //Launch OBS
+	{ Mod1Mask|ShiftMask,		XK_s, 	   spawn, 	   SHCMD{"flatpak run com.valvesoftware.Steam"},  //Luanch Steam
+
+	{ MODKEY|ControlMask,           XK_b,      togglebar,      {0} },                                         //Hide/Show status bar
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },                                  //Switch Focused Window clockwise
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },                                  //Switch Focused Window counter-clockwise
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },                                  //change layout
