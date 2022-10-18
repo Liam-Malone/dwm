@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 4;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -31,7 +31,7 @@ static const char col_white[]       = "#ffffff";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_white , col_charcoal, col_charcoal },
-	[SchemeSel]  = { col_white , col_gray1,  col_gray1 },
+	[SchemeSel]  = { col_white , col_gray1,  col_gold },
 };
 
 
@@ -120,10 +120,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },                                 //Switch Focused Monitor left
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },                                 //Switch Focused Monitor right
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },				 //Move Focused Window to Monitor Left
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },				 //Move Focused Window to Monitor Right
+	{ MODKEY,                       XK_comma,  focusmon,       {.i = +1 } },                                 //Switch Focused Monitor left
+	{ MODKEY,                       XK_period, focusmon,       {.i = -1 } },                                 //Switch Focused Monitor right
+	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = +1 } },				 //Move Focused Window to Monitor Left
+	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = -1 } },				 //Move Focused Window to Monitor Right
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },                                 //Decrease gap size
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },                                 //Increase gap size
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },                                 //Set gap size to 0
