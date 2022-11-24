@@ -86,10 +86,11 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-l", "5", "-g", "5", "-m", dmenumon, "-fn", dmenufont, "-nb", col_charcoal, "-nf", col_white , "-sb", col_gray1 , "-sf", col_white , NULL };
 static const char *termcmd[]  = { "kitty", NULL };
+static const char *alt_termcmd[] = { "alacritty", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ 0,		                XK_Print,  spawn,          SHCMD("~/scripts/screenshot") },               //Screenshot keybind
+	{ 0,		                    XK_Print,  spawn,          SHCMD("~/scripts/screenshot") },               //Screenshot keybind
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("systemctl suspend") },                  //put machine to sleep
 	{ MODKEY|ShiftMask,             XK_k,      spawn,          SHCMD("shutdown now") },                       //shutdown keybind
 	{ Mod1Mask|ShiftMask,	        XK_d,      spawn,          {.v = dmenucmd } },                            //Runlauncher (dmenu) keybind
@@ -97,11 +98,13 @@ static Key keys[] = {
 				    	//program launch keybinds
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("brave") },                              //Launch Brave
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox") },                            //Launch Firefox
-	{ MODKEY|ShiftMask, 		XK_d,	   spawn,	   SHCMD("discord")},				  //Launch Discord
+	{ MODKEY|ShiftMask, 		    XK_d,	   spawn,	   SHCMD("discord")},				  //Launch Discord
 	{ Mod1Mask|ShiftMask,           XK_Return, spawn,          {.v = termcmd } },                             //Launch Terminal (kitty)
+	{ Mod1Mask,			            XK_Return, spawn,	   {.v = alt_termcmd } },
 	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("flatpak run org.kde.kdenlive") },       //Launch Kdenlive
-	{ MODKEY,			XK_o,      spawn,          SHCMD("flatpak run com.obsproject.Studio")},   //Launch OBS
-	{ Mod1Mask|ShiftMask,		XK_s, 	   spawn, 	   SHCMD("flatpak run com.valvesoftware.Steam")}, //Launch Steam
+	{ MODKEY,			            XK_o,      spawn,          SHCMD("flatpak run com.obsproject.Studio")},   //Launch OBS
+	{ Mod1Mask|ShiftMask,   		XK_s, 	   spawn, 	   SHCMD("flatpak run com.valvesoftware.Steam")}, //Launch Steam
+	{ MODKEY|ShiftMask,	        	XK_p,	   spawn,	   SHCMD("pcmanfm")}, 				  //Launch Pcmanfm
 
 	{ MODKEY|ControlMask,           XK_b,      togglebar,      {0} },                                         //Hide/Show status bar
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },                                  //Switch Focused Window clockwise
@@ -112,7 +115,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },                                //decrease size of main window
 	{ MODKEY,                       XK_Return, zoom,           {0} },                                         //move focused window to master position
 	{ MODKEY,                       XK_Tab,    view,           {0} },                                         
-	{ Mod1Mask|ShiftMask,		XK_c,      killclient,     {0} },                                         //kills focused window                                            
+	{ Mod1Mask|ShiftMask,		    XK_c,      killclient,     {0} },                                         //kills focused window                                            
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -127,8 +130,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },                                 //Decrease gap size
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },                                 //Increase gap size
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },                                 //Set gap size to 0
-	{ Mod1Mask,            		XK_Tab,    shiftview,      { .i = +1 } },                                //Switch to next tag
-	{ Mod1Mask|ShiftMask,   	XK_Tab,    shiftview,      { .i = -1 } },                                //Switch to prev tag
+	{ Mod1Mask,            		    XK_Tab,    shiftview,      { .i = +1 } },                                //Switch to next tag
+	{ Mod1Mask|ShiftMask,   	    XK_Tab,    shiftview,      { .i = -1 } },                                //Switch to prev tag
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
