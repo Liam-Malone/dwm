@@ -1,5 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
+//source for multimedia key stuff (light -- I haven't implemented): https://gist.github.com/palopezv/efd34059af6126ad970940bcc6a90f2e
+
+
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 4;        /* gaps between windows */
@@ -81,6 +84,7 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 #include "shiftview.c"
+#include <X11/XF86keysym.h>
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -98,13 +102,14 @@ static Key keys[] = {
 				    	//program launch keybinds
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("brave") },                              //Launch Brave
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox") },                            //Launch Firefox
-	{ MODKEY|ShiftMask, 		    XK_d,	   spawn,	   SHCMD("discord")},				  //Launch Discord
+	{ MODKEY|ShiftMask, 		    XK_d,	   spawn,	       SHCMD("discord")},				              //Launch Discord
 	{ Mod1Mask|ShiftMask,           XK_Return, spawn,          {.v = termcmd } },                             //Launch Terminal (kitty)
-	{ Mod1Mask,			            XK_Return, spawn,	   {.v = alt_termcmd } },
+	{ Mod1Mask,			            XK_Return, spawn,	       {.v = alt_termcmd } },
 	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("flatpak run org.kde.kdenlive") },       //Launch Kdenlive
 	{ MODKEY,			            XK_o,      spawn,          SHCMD("flatpak run com.obsproject.Studio")},   //Launch OBS
-	{ Mod1Mask|ShiftMask,   		XK_s, 	   spawn, 	   SHCMD("flatpak run com.valvesoftware.Steam")}, //Launch Steam
-	{ MODKEY|ShiftMask,	        	XK_p,	   spawn,	   SHCMD("pcmanfm")}, 				  //Launch Pcmanfm
+	{ Mod1Mask|ShiftMask,   		XK_s, 	   spawn, 	       SHCMD("flatpak run com.valvesoftware.Steam")}, //Launch Steam
+	{ MODKEY|ShiftMask,	        	XK_p,	   spawn,	       SHCMD("pcmanfm")}, 			            	  //Launch Pcmanfm
+    { MODKEY,                       XK_b,      spawn,          SHCMD("blueman-manager") },                    //bluetooth manager
 
 	{ MODKEY|ControlMask,           XK_b,      togglebar,      {0} },                                         //Hide/Show status bar
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },                                  //Switch Focused Window clockwise
@@ -132,6 +137,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },                                 //Set gap size to 0
 	{ Mod1Mask,            		    XK_Tab,    shiftview,      { .i = +1 } },                                //Switch to next tag
 	{ Mod1Mask|ShiftMask,   	    XK_Tab,    shiftview,      { .i = -1 } },                                //Switch to prev tag
+    { 0,                       XF86XK_AudioLowerVolume, spawn, SHCMD("pamixer -d 5") },
+	{ 0,                       XF86XK_AudioMute, spawn, SHCMD("pamixer -t") },
+	{ 0,                       XF86XK_AudioRaiseVolume, spawn, SHCMD("pamixer -i 5")},
+
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
